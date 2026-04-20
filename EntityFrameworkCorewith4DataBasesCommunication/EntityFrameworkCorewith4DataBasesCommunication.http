@@ -1,0 +1,6 @@
+@EntityFrameworkCorewith4DataBasesCommunication_HostAddress = http://localhost:5177
+
+GET {{EntityFrameworkCorewith4DataBasesCommunication_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
