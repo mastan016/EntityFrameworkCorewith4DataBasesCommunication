@@ -52,7 +52,7 @@ namespace EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Controllers
             {
 
                 var empdata=await _employeeService.GetEmployees();
-                if (empdata != null)
+                if (empdata == null)
                 {
                     return StatusCode(StatusCodes.Status400BadRequest, "bad request");
                 }
@@ -123,28 +123,28 @@ namespace EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Controllers
         }
 
 
-        //[HttpPut]
-        //[Route("UpdateEmployee")]
-        //public async Task<IActionResult> put([FromBody] EmployeeDto empdto)
-        //{
-        //    try
-        //    {
-        //        if (!ModelState.IsValid)
-        //        {
+        [HttpPut]
+        [Route("UpdateEmployee")]
+        public async Task<IActionResult> put([FromBody] EmployeeDto empdto)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
 
-        //            return StatusCode(StatusCodes.Status400BadRequest, ModelState);
-        //        }
-        //        else
-        //        {
-        //            var empdata = await _employeeService.UpdateEmployee(empdto);
-        //            return StatusCode(StatusCodes.Status200OK, empdata);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(StatusCodes.Status500InternalServerError, "server not found");
-        //    }
-        //}
+                    return StatusCode(StatusCodes.Status400BadRequest, ModelState);
+                }
+                else
+                {
+                    var empdata = await _employeeService.UpdateEmployee(empdto);
+                    return StatusCode(StatusCodes.Status200OK, empdata);
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "server not found");
+            }
+        }
 
 
     }
