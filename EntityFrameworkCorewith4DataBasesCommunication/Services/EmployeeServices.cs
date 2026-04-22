@@ -19,6 +19,7 @@ namespace EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Services
             emp.empid = empdetail.empid;
             emp.empSalary = empdetail.empSalary;
             emp.empname = empdetail.empname;
+            emp.employeeAddress = empdetail.employeeAddress;
             var res=await _employeeRepository.AddEmployees(emp);
             return res;           
         }
@@ -38,6 +39,7 @@ namespace EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Services
             empdto.empid = res.empid;
             empdto.empname = res.empname;
             empdto.empSalary = res.empSalary;
+            empdto.employeeAddress=res.employeeAddress;// assign the empdetails
 
             return empdto;
 
@@ -55,6 +57,7 @@ namespace EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Services
                 empdto.empid=emp.empid;
                 empdto.empSalary=emp.empSalary;
                 empdto.empname=emp.empname;
+                empdto.employeeAddress = emp.employeeAddress;
                 lstempdto.Add(empdto);
             }
             return lstempdto;
@@ -66,6 +69,7 @@ namespace EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Services
             emp.empid = empdetail.empid;
             emp.empSalary= empdetail.empSalary;
             emp.empname = empdetail.empname;
+            emp.employeeAddress = empdetail.employeeAddress;
             await _employeeRepository.UpdateEmployee(emp);
             return true;
            

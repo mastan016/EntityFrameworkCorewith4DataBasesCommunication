@@ -10,5 +10,7 @@
 
         public int empSalary { get; set; }
 
+        public string employeeAddress { get; set; }
+
     }
 }

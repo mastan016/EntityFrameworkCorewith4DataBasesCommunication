@@ -14,6 +14,10 @@ namespace EntityFrameworkCorewith4DataBasesCommunication.Entities
 
         public int empSalary { get; set; }
 
+        //add the new coloum for latest requirement change
+
+        public string employeeAddress { get; set; }
+
 
     }
 }
