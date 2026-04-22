@@ -8,9 +8,7 @@
 
         public string empname { get; set; }
 
-        public int empSalary { get; set; }
-
-        public string employeeAddress { get; set; }
+        public int empSalary { get; set; }     
 
     }
 }
