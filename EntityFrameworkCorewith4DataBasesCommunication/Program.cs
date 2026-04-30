@@ -1,3 +1,4 @@
+using EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Dbconnect;
 using EntityFrameworkCore_CodeFirst_4DataBasesCommunication.interfaces;
 using EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Repositories;
 using EntityFrameworkCore_CodeFirst_4DataBasesCommunication.Services;
@@ -16,10 +17,15 @@ builder.Services.AddSwaggerGen();
 //register your context class and pointing to your connection string.
 //you should tell to ef core this context class is pointing to this database.
 builder.Services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeCodeFirstApproachDatabase")));
+builder.Services.AddDbContext<OrdersContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("OrderCodeFirstApproachDatabase")));
+
 
 builder.Services.AddScoped<IEmployeeService, EmployeeServices>();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
-
+//----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+builder.Services.AddScoped<IOrdersRepository,OrdersRepository>();
+builder.Services.AddScoped<IOrdersService,OrderService>();
 
 var app = builder.Build();
 
