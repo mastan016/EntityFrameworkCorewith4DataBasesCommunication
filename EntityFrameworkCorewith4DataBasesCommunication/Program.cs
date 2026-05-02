@@ -18,6 +18,8 @@ builder.Services.AddSwaggerGen();
 //you should tell to ef core this context class is pointing to this database.
 builder.Services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeCodeFirstApproachDatabase")));
 builder.Services.AddDbContext<OrdersContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("OrderCodeFirstApproachDatabase")));
+builder.Services.AddDbContext<DepartmentContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DepartmentCodeFirstApproachDatabase")));
+
 
 
 builder.Services.AddScoped<IEmployeeService, EmployeeServices>();
@@ -26,6 +28,13 @@ builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 //-----------------------------------------------------------------------------
 builder.Services.AddScoped<IOrdersRepository,OrdersRepository>();
 builder.Services.AddScoped<IOrdersService,OrderService>();
+
+//----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+
 
 var app = builder.Build();
 
